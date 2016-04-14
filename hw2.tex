@@ -1,0 +1,79 @@
+\documentclass{homework}
+
+\title{Homework 2}
+
+\begin{document}
+\maketitle
+
+\begin{problem}{1}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+Consider two maximal paths $P, Q$ that do not have a common vertex. Label P's
+vertexes $p_1, \hdots, p_n$, and Q's $q_1, \hdots, q_m$. Since the graph
+is connected, there exists $p_i$ and $q_j$ such that there is a walk from
+$p_i$ and $q_j$ whose edges does not occur in any of these two paths.
+
+Next, one can choose the longer path between the one from $p_1$ to $p_i$
+and the one from $p_n$ to $p_i$. Call the path $P'$. Do the same for $Q$ and
+obtain $Q'$. The length of $P'$, denoted as $|P'|$, is at least
+$\frac{1}{2}|P|$. Similarly, $|Q'| \geq \frac{1}{2}|Q|$. Join $P'$ and $Q'$
+by the walk from $p_i$ to $q_j$. This new path's length is larger than
+$\frac{1}{2}|P| + \frac{1}{2}|Q| = |P| = |Q|$, which means there exists a
+path larger than $P$ or $Q$, a contradiction. Hence there do not exist
+two maximal paths without a common vertex.
+
+On the existence of such $p_i$ and $q_j$. Pick an arbitrary vertex in $P$
+and another in $Q$. There exists a walk between these two vertexes. For
+the sequence of vertexes of this walk, there must exists two vertexes, one
+from $P$ and the other from $Q$, such that any vertex in between is not
+in $P$ or $Q$. Such two vertexes are the claimed $p_i$ and $q_j$. \QED
+
+The converse case does not hold, for one can consider a graph of two
+disconnected complete sub-graphs with same amount of vertexes. One can
+``replicate'' the maximal path found in one sub-graph in the other without
+any common vertex.
+\end{problem}
+
+\begin{problem}{2}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+Consider two complete sub-graphs, each of $2017$ vertexes. Add another vertex
+that has an edge to every vertex in these two graphs. Label these two complete 
+sub-graphs $\Gamma_1$ and $\Gamma_2$. Label the vertex $v$.
+
+\textbf{Claim}. This is the graph $\Gamma$ desired.
+
+\textbf{Proof}. Edge connectivity. $\lambda(\Gamma_1) = \lambda(\Gamma_2) 2016$.
+If we cut some edges in $\Gamma_1$ (or $\Gamma_2$), there exists an edge between
+some vertex in $\Gamma_1$ (or $\Gamma_2$) and $v$. Besides, it takes at least
+$2017$ edge cuts on $v$ to disconnect $\Gamma_1$ (or $\Gamma_2$) from the rest
+of $\Gamma$. Hence, $\lambda(\Gamma) = 2016$.
+
+Vertex connectivity. Remove $v$. Hence, $\kappa(\Gamma) = 1$. \QED
+\end{problem}
+
+\begin{problem}{3}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+Consider two complete sub-graphs, each of $5$ vertexes. Pick two vertexes from
+each sub-graph, label them $v_1, v_2, u_1, u_2$---the two with the same alphabet
+come from the same sub-graph. Add the following edges:
+$\{v_1, u_1\}$, $\{v_2, u_2\}$, $\{v_1, u_2\}$.
+
+\textbf{Claim}. This is the graph $\Gamma$ desired.
+
+\textbf{Proof}. Edge connectivity. Cutting the three edges can disconnect
+$\Gamma$. Cutting edges other than these edges requires four cuts
+to disconnect since each of these two components are complete graphs.
+Therefore, $\lambda(\Gamma) = 3$.
+
+Vertex connectivity. Remove $v_1$ and $v_2$ will disconnect $\Gamma$.
+Therefore, $\kappa(\Gamma) = 2$.
+
+Since we construct the graph based on two complete sub-graphs of $5$ vertexes,
+$\delta(\Gamma) = 4$. \QED
+\end{problem}
+
+\begin{problem}{4}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\end{problem}
+
+
+\end{document}

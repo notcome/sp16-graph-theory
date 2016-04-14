@@ -1,0 +1,86 @@
+\documentclass{homework}
+
+\title{Homework 1}
+
+\begin{document}
+\maketitle
+
+\begin{problem}{1}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+Since $|E| = \frac{1}{2}\sum_{v \in V} \deg{v}$, we have
+$|E| \geq \frac{1}{2}\sum_{v \in V} \delta(\Gamma)
+= \frac{1}{2}|v| \delta(\Gamma)$, namely
+$\frac{|E|}{|V|} \geq \frac{\delta(\Gamma)}{2}$.
+Similarly,
+$|E| \leq \frac{1}{2}\sum_{v \in V} \Delta(\Gamma)
+= \frac{1}{2}|v| \Delta(\Gamma)$, namely
+$\frac{|E|}{|V|} \leq \frac{\Delta(\Gamma)}{2}$. \QED
+
+Consider a graph of two vertexes and an edge between them. Both equality holds
+for such a graph.
+\end{problem}
+
+\begin{problem}{2}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+This can be proven by induction.
+
+First, one can consider a graph with only one vertex, which is necessarily
+connected. 
+
+Then, for a graph with $n$ vertexes, one can divide these vertexes into two 
+disjoint subsets and slice the edges set accordingly.
+From the induction hypothesis it is evident that each subset itself constitutes 
+a connected graph. Consider the sub-graph with less vertexes. Such a sub-graph
+can have at most $\frac{n}{2}$ when $\Gamma$ has even vertexes, and
+$\frac{n-1}{2}$ when odd.
+\begin{itemize}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item If $\Gamma$ has even vertexes, from the premise we
+know that each vertex has at least $\frac{n}{2}$ adjacent vertexes in
+$\Gamma$, namely at least one vertexes in the other sub-graph is adjacent
+to each vertex in this smaller sub-graph. Hence $\Gamma$ is necessarily
+connected.
+\item If $\Gamma$ has odd vertexes, then each vertex has at least $\frac{n}{2}$ 
+adjacent vertexes in $\Gamma$, namely at least one vertexes in the other
+sub-graph is adjacent to each vertex in this smaller sub-graph.
+Hence $\Gamma$ is necessarily connected.
+\end{itemize}
+This completes the proof.\QED
+\end{problem}
+
+\begin{problem}{3}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item For each two distinct vertex $v_1, v_2$, there could either be an edge
+or not. There are $\frac{n(n-1)}{2}$ such distinct pairs, so
+\begin{align*}
+m_n &= 2^\frac{n(n-1)}{2}\\
+m_1 &= 1\\
+m_2 &= 2\\
+m_3 &= 8\\
+m_4 &= 64
+\end{align*}
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+The number of connected graphs are the number of all graphs subtracting
+that of disconnected ones. Use $d_n$ to denote the number of disconnected
+graphs. One can fix a vertex and divide the graph into two parts, namely
+vertexes connected to this vertex and all the rest. Assume there are $k$
+in the ``all the rest'' subset, the total number of disconnected graphs
+of this situation would be
+$\begin{pmatrix}n-1\\k\end{pmatrix}m_k c_{n-k}$. Therefore
+$$d_n = \sum^{n-1}_{k=1}\begin{pmatrix}n-1\\k\end{pmatrix}m_k c_{n-k}$$
+, and the total number of connected graphs is
+\begin{align*}
+c_n &= m_n - d_n \\
+    &= m_n - \sum^{n-1}_{k=1}\begin{pmatrix}n-1\\k\end{pmatrix}m_k c_{n-k}\\
+c_1 &= 1\\
+c_2 &= 1\\
+c_3 &= 4\\
+c_4 &= 38
+\end{align*}
+\end{enumerate}
+\end{problem}
+
+\end{document}
